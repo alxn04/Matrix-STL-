@@ -24,7 +24,7 @@ void MainMenu(const Matrix& m)
 int main()
 {
     setlocale(LC_ALL, "ru");
-    /*try
+    try
     {
         size_t rows, cols;
         cout << "Введите размер матрицы" << endl;
@@ -118,10 +118,8 @@ int main()
             case 7:
             {
                 system("cls");
-                cout << "Введите размеры второй матрицы: " << endl;
-                size_t rows_2, cols_2;
-                cin >> rows_2 >> cols_2;
-                cout << endl << "Введите элементы второй матрицы построчно: " << endl;
+                size_t rows_2 = rows, cols_2 = cols;
+                cout << endl << "Введите элементы второй матрицы построчно(размер " << rows_2 << "x" << cols_2 << ")" << endl;
                 Matrix m2(rows_2, cols_2);
                 cin >> m2;
                 cout << "Результат: " << endl;
@@ -154,10 +152,8 @@ int main()
             case 9:
             {
                 system("cls");
-                cout << "Введите размеры второй матрицы: " << endl;
-                size_t rows_2, cols_2;
-                cin >> rows_2 >> cols_2;
-                cout << endl << "Введите элементы второй матрицы построчно: " << endl;
+                size_t rows_2 = rows, cols_2 = cols;
+                cout << endl << "Введите элементы второй матрицы построчно(размер " << rows_2 << "x" << cols_2 << ")" << endl;
                 Matrix m2(rows_2, cols_2);
                 cin >> m2;
                 cout << "Результат: " << endl;
@@ -190,11 +186,6 @@ int main()
         }
 
     }
-    */
-try {
-    Matrix m1(2, 2);
-    cout << m1(3, 3);
-}
     catch (exception& ex)
     {
         cout << "Ошибка! " << ex.what() << endl;
