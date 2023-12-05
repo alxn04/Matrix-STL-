@@ -10,10 +10,9 @@ private:
 	vector<vector<double>> matrix;
 public:
 	Matrix() : cols(0), rows(0), matrix(0, vector<double>(0)) {};
-	Matrix(int rows, int cols) : rows(rows),cols(cols), matrix(vector<vector<double>>(rows, vector<double>(cols))) {};
+	Matrix(size_t rows, size_t cols) : rows(rows), cols(cols), matrix(vector<vector<double>>(rows, vector<double>(cols))) {};
 	Matrix(vector<vector<double>> m) : rows(m.size()), cols(m[0].size()), matrix(m) {};
-	//Matrix operator =(const Matrix& other); // оператор присваивания
-	//Matrix(const Matrix& other); // конструктор копирования
+	Matrix(const Matrix& other); // конструктор копирования
 
 	Matrix operator +(const Matrix& other) const;
 	Matrix operator +(double digit) const;

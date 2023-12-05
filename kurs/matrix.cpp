@@ -1,4 +1,11 @@
 #include "matrix.h"
+
+Matrix::Matrix(const Matrix& other)
+{
+	matrix = other.matrix;
+	cols = other.cols;
+	rows = other.rows;
+}
 // индексирование
 
 double& Matrix::operator()(size_t i, size_t j)
@@ -295,11 +302,10 @@ Matrix Matrix::GetMatrix(int col) const {
 	Matrix newMatrix(this->rows- 1, this->cols - 1);
 	int offsetCol = 0; //Смещение индекса столбца в матрице
 	for (size_t i = 1; i < this->rows; i++) {
-		offsetCol = 0; //Обнулить смещение столбца
+		offsetCol = 0;
 		for (size_t j = 0; j < this->rows - 1; j++) {
-			//Пропустить col-ый столбец
-			if (j == col) {
-				offsetCol = 1; //Встретили нужный столбец, проускаем его смещением
+			if (j = col) {
+				offsetCol = 1;
 			}
 
 			newMatrix(i-1,j) = (*this)(i,j+offsetCol);
