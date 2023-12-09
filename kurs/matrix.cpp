@@ -51,6 +51,10 @@ istream& operator >> (istream& in, Matrix& matrix) {
 	return in;
 }
 
+
+
+
+
 //------------------------------------------------
 
 // перегрузка операторов сложени€
@@ -81,6 +85,18 @@ Matrix Matrix::operator+(double digit) const
 	}
 	return res;
 }
+
+Matrix operator+(double digit, const Matrix& matrix)
+{
+	Matrix res(matrix);
+	for (size_t i = 0; i != res.rows; ++i) {
+		for (size_t j = 0; j != res.cols; ++j) {
+			res(i, j) += digit;
+		}
+	}
+	return res;
+}
+
 
 Matrix& Matrix::operator+=(double digit)
 {
@@ -168,6 +184,16 @@ Matrix Matrix::operator*(const Matrix& other) const
 		return ans;
 	}
 	else throw std::invalid_argument("operator *:  оличество столбцов первой матрицы должно быть равно количеству строк второй");
+}
+Matrix operator*(double digit, const Matrix& matrix)
+{
+	Matrix res(matrix);
+	for (size_t i = 0; i != res.rows; ++i) {
+		for (size_t j = 0; j != res.cols; ++j) {
+			res(i, j) *= digit;
+		}
+	}
+	return res;
 }
 
 Matrix& Matrix::operator*=(double digit)
@@ -304,7 +330,7 @@ Matrix Matrix::GetMatrix(int col) const {
 	for (size_t i = 1; i < this->rows; i++) {
 		offsetCol = 0;
 		for (size_t j = 0; j < this->rows - 1; j++) {
-			if (j = col) {
+			if (j == col) {
 				offsetCol = 1;
 			}
 

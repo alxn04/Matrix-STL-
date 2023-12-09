@@ -186,7 +186,7 @@ int main()
         }
 
     }
-    catch (exception& ex)
+    catch (const exception& ex)
     {
         cout << "Ошибка! " << ex.what() << endl;
         cout << typeid(ex).name() << endl;
@@ -197,5 +197,11 @@ int main()
         cout << "Неизвестная ошибка" << endl;
         return 1;
     }
+
+    Matrix m3;
+    Matrix m4;
+    // НАПИСАТЬ ЛОГИКУ ТУТ!!
+    m4 = 5 + m3;
+    m4 = 5 - m3;
 }
 

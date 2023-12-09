@@ -8,19 +8,21 @@ private:
 	size_t cols;
 	size_t rows;
 	vector<vector<double>> matrix;
+	Matrix GetMatrix(int col) const;
+	bool IsMultiplicate(const Matrix& other) const;
+	bool IsEqualSize(const Matrix& other) const;
 public:
 	Matrix() : cols(0), rows(0), matrix(0, vector<double>(0)) {};
 	Matrix(size_t rows, size_t cols) : rows(rows), cols(cols), matrix(vector<vector<double>>(rows, vector<double>(cols))) {};
-	Matrix(vector<vector<double>> m) : rows(m.size()), cols(m[0].size()), matrix(m) {};
+	//Matrix(vector<vector<double>> m) : rows(m.size()), cols(m[0].size()), matrix(m) {};
 	Matrix(const Matrix& other); // конструктор копирования
 
 	Matrix operator +(const Matrix& other) const;
 	Matrix operator +(double digit) const;
 	Matrix& operator +=(double digit);
 	Matrix& operator +=(const Matrix& other);
-	Matrix& operator ++(); // префиксный инкремент
-	Matrix operator ++(int digit); // постфиксный инкремент
-
+	Matrix& operator ++(); 
+	Matrix operator ++(int digit); 
 	Matrix operator *(double digit) const; // умножение на число
 	Matrix operator *(const Matrix& other) const; // умножение на другую матрицу
 	Matrix& operator *=(double digit);
@@ -43,11 +45,11 @@ public:
 	size_t GetRows() const { return this->rows; }
 	size_t GetColumns() const { return this->cols; }
 	
-	Matrix GetMatrix(int col) const;
 	double Determinant() const;
-	bool IsMultiplicate(const Matrix& other) const;
-	bool IsEqualSize(const Matrix& other) const;
+
+	//friend Matrix operator+(double digit, const Matrix& other);
 };
 
 ostream& operator <<(ostream& out, const Matrix& matrix);
 istream& operator >>(istream& in, Matrix& matrix);
+//Matrix operator+(double digit, const Matrix& other);
