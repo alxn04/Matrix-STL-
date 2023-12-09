@@ -14,7 +14,6 @@ private:
 public:
 	Matrix() : cols(0), rows(0), matrix(0, vector<double>(0)) {};
 	Matrix(size_t rows, size_t cols) : rows(rows), cols(cols), matrix(vector<vector<double>>(rows, vector<double>(cols))) {};
-	//Matrix(vector<vector<double>> m) : rows(m.size()), cols(m[0].size()), matrix(m) {};
 	Matrix(const Matrix& other); // конструктор копирования
 
 	Matrix operator +(const Matrix& other) const;
@@ -22,7 +21,7 @@ public:
 	Matrix& operator +=(double digit);
 	Matrix& operator +=(const Matrix& other);
 	Matrix& operator ++(); 
-	Matrix operator ++(int digit); 
+	Matrix operator ++(int); 
 	Matrix operator *(double digit) const; // умножение на число
 	Matrix operator *(const Matrix& other) const; // умножение на другую матрицу
 	Matrix& operator *=(double digit);
@@ -33,7 +32,7 @@ public:
 	Matrix& operator -=(double digit);
 	Matrix& operator -=(const Matrix& other);
 	Matrix& operator --(); // префиксный декремент
-	Matrix operator --(int digit); // постфиксный декремент
+	Matrix operator --(int); // постфиксный декремент
 
 	Matrix operator !() const; // транспонирование
 	bool operator ==(const Matrix& other) const;
@@ -47,9 +46,11 @@ public:
 	
 	double Determinant() const;
 
-	//friend Matrix operator+(double digit, const Matrix& other);
+	friend Matrix operator+(double digit, const Matrix& other);
+	friend Matrix operator*(double digit, const Matrix& other);
 };
 
 ostream& operator <<(ostream& out, const Matrix& matrix);
 istream& operator >>(istream& in, Matrix& matrix);
-//Matrix operator+(double digit, const Matrix& other);
+Matrix operator+(double digit, const Matrix& matrix);
+Matrix operator *(double digit, const Matrix& matrix);

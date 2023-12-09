@@ -122,9 +122,20 @@ int main()
                 cout << endl << "Введите элементы второй матрицы построчно(размер " << rows_2 << "x" << cols_2 << ")" << endl;
                 Matrix m2(rows_2, cols_2);
                 cin >> m2;
-                cout << "Результат: " << endl;
-                cout << m1 + m2;
-
+                cout << endl << "Для сохранения результата в начальную матрицу нажмите - 1, без сохранения - любую другую клавишу" << endl;
+                char choice;
+                cin >> choice;
+                if (choice == '1')
+                {
+                    m1 += m2;
+                    cout << endl << "Результат: " << endl;
+                    cout << m1;
+                }
+                else
+                {
+                    cout << "Результат: " << endl;
+                    cout << m1 + m2;
+                }
                 system("pause");
                 system("cls");
                 MainMenu(m1);
@@ -140,8 +151,20 @@ int main()
                 cout << endl << "Введите элементы второй матрицы построчно: " << endl;
                 Matrix m2(rows_2, cols_2);
                 cin >> m2;
-                cout << "Результат: " << endl;
-                cout << m1 * m2;
+                cout << endl << "Для сохранения результата в начальную матрицу нажмите - 1, без сохранения - любую другую клавишу" << endl;
+                char choice;
+                cin >> choice;
+                if (choice == '1')
+                {
+                    m1 *= m2;
+                    cout << endl << "Результат: " << endl;
+                    cout << m1;
+                }
+                else
+                {
+                    cout << "Результат: " << endl;
+                    cout << m1 * m2;
+                }
 
                 system("pause");
                 system("cls");
@@ -156,8 +179,20 @@ int main()
                 cout << endl << "Введите элементы второй матрицы построчно(размер " << rows_2 << "x" << cols_2 << ")" << endl;
                 Matrix m2(rows_2, cols_2);
                 cin >> m2;
-                cout << "Результат: " << endl;
-                cout << m1 - m2;
+                cout << endl << "Для сохранения результата в начальную матрицу нажмите - 1, без сохранения - любую другую клавишу" << endl;
+                char choice;
+                cin >> choice;
+                if (choice == '1')
+                {
+                    m1 -= m2;
+                    cout << endl << "Результат: " << endl;
+                    cout << m1;
+                }
+                else
+                {
+                    cout << "Результат: " << endl;
+                    cout << m1 - m2;
+                }
 
                 system("pause");
                 system("cls");
@@ -197,11 +232,5 @@ int main()
         cout << "Неизвестная ошибка" << endl;
         return 1;
     }
-
-    Matrix m3;
-    Matrix m4;
-    // НАПИСАТЬ ЛОГИКУ ТУТ!!
-    m4 = 5 + m3;
-    m4 = 5 - m3;
 }
 
