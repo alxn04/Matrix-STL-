@@ -132,7 +132,7 @@ Matrix& Matrix::operator++()
 	return *this;
 }
 
-Matrix Matrix::operator++(int digit)
+Matrix Matrix::operator++(int)
 {
 	Matrix last_copy(*this);
 	for (size_t i = 0; i != rows; ++i) {
@@ -269,7 +269,7 @@ Matrix& Matrix::operator--()
 	return *this;
 }
 
-Matrix Matrix::operator--(int digit)
+Matrix Matrix::operator--(int)
 {
 	Matrix last_copy(*this);
 	for (size_t i = 0; i != rows; ++i) {
