@@ -24,7 +24,7 @@ void MainMenu(const Matrix& m)
 int main()
 {
     setlocale(LC_ALL, "ru");
-    try
+    /*try
     {
         size_t rows, cols;
         cout << "Введите размер матрицы" << endl;
@@ -232,5 +232,9 @@ int main()
         cout << "Неизвестная ошибка" << endl;
         return 1;
     }
+    */
+    Matrix m(3,3);
+    m.FillRandom();
+    cout << m;
 }
 

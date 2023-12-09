@@ -356,6 +356,16 @@ double Matrix::Determinant() const
 	return det;
 }
 
+void Matrix::FillRandom()
+{
+	srand(time(NULL));
+	for (size_t i = 0; i != rows; ++i) {
+		for (size_t j = 0; j != cols; ++j) {
+			(*this)(i, j) = rand() % 100 - 50; // случайные числа от -50 до 50
+		}
+	}
+}
+
 bool Matrix::IsEqualSize(const Matrix& other) const
 {
 	return this->cols == other.cols && this->rows == other.rows;

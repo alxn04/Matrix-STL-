@@ -45,6 +45,7 @@ public:
 	size_t GetColumns() const { return this->cols; }
 	
 	double Determinant() const;
+	void FillRandom();
 
 	friend Matrix operator+(double digit, const Matrix& other);
 	friend Matrix operator*(double digit, const Matrix& other);
